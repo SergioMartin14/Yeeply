@@ -21,6 +21,12 @@ El dataset se divide en:
 
 Roboflow permite exportar el dataset en **formato YOLO**, lo que facilita su integración directa con modelos como YOLOv8.
 
+### Data Leakage Experiment
+
+Para analizar el impacto del **data leakage**, se creó una segunda versión del dataset en la que se añadieron las **400 imágenes del conjunto de validación al conjunto de entrenamiento**. De esta forma, el modelo tiene acceso durante el entrenamiento a ejemplos que también aparecen en validación, simulando una situación de **fuga de información entre splits**.
+
+Tras esta modificación, el conjunto de entrenamiento pasa a tener **3575 imágenes**, mientras que los conjuntos de validación y test se mantienen sin cambios. Este experimento permite observar cómo el *data leakage* puede producir **métricas de validación artificialmente optimistas**, ya que el modelo se evalúa sobre datos que ya ha visto durante el entrenamiento.
+
 ### Dataset Summary
 
 | Feature | Value |
@@ -33,11 +39,17 @@ Roboflow permite exportar el dataset en **formato YOLO**, lo que facilita su int
 | Annotation type | Bounding boxes |
 | Format | YOLO |
 
-### Data Leakage Experiment
+## Dataset Comparison
 
-Para analizar el impacto del **data leakage**, se creó una segunda versión del dataset en la que se añadieron las **400 imágenes del conjunto de validación al conjunto de entrenamiento**. De esta forma, el modelo tiene acceso durante el entrenamiento a ejemplos que también aparecen en validación, simulando una situación de **fuga de información entre splits**.
-
-Tras esta modificación, el conjunto de entrenamiento pasa a tener **3575 imágenes**, mientras que los conjuntos de validación y test se mantienen sin cambios. Este experimento permite observar cómo el *data leakage* puede producir **métricas de validación artificialmente optimistas**, ya que el modelo se evalúa sobre datos que ya ha visto durante el entrenamiento.
+| Feature | Original dataset | Dataset with leakage |
+|-------|------------------|----------------------|
+| Total images | 3875 | 4275 |
+| Classes | 1 (person) | 1 (person) |
+| Training images | 3175 | 3575 |
+| Validation images | 400 | 400 |
+| Test images | 300 | 300 |
+| Annotation type | Bounding boxes | Bounding boxes |
+| Format | YOLO | YOLO |
 
 ### Dataset Comparison
 
