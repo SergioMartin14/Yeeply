@@ -38,6 +38,20 @@ Tras esta modificación, el conjunto de entrenamiento pasa a tener **3575 imáge
 | Annotation type | Bounding boxes | Bounding boxes |
 | Format | YOLO | YOLO |
 
+## Training YOLO
+
+Debido a la falta de disponibilidad de hardware local adecuado para el entrenamiento de modelos de visión por computador, los experimentos se realizaron en **Google Colab**, lo que permitió utilizar **aceleración por GPU**. No obstante, el entorno presenta limitaciones de tiempo de uso, ya que las sesiones se interrumpían al alcanzar el límite de ejecución. Esto obligó a priorizar entrenamientos relativamente cortos para evitar perder el progreso del entrenamiento.
+
+Como consecuencia de estas restricciones, se utilizó el modelo **YOLOv8n**, una versión ligera de YOLOv8, y se limitaron el número de **épocas de entrenamiento**. Aun así, cada entrenamiento tuvo una duración aproximada de **más de dos horas**.
+
+Se realizaron **tres entrenamientos diferentes** con el objetivo de analizar distintos comportamientos del modelo:
+
+- **Entrenamiento base (óptimo)**: realizado con el **dataset original** y las **técnicas de data augmentation por defecto** de YOLOv8. Este entrenamiento sirve como referencia para evaluar el rendimiento normal del modelo.
+
+- **Entrenamiento con overfitting**: realizado con el **dataset original**, pero reduciendo significativamente las técnicas de **data augmentation**. Debido a las limitaciones de tiempo de Google Colab no fue posible realizar un entrenamiento extremadamente largo, pero se buscó favorecer el sobreajuste al reducir la variabilidad de los datos.
+
+- **Entrenamiento con data leakage**: realizado con el **dataset modificado**, donde las **imágenes de validación se añadieron al conjunto de entrenamiento**. Este experimento se diseñó para ilustrar el efecto del *data leakage* en las métricas de validación.
+
 
 ## Demo Person Detector Outdoor-Indoor
 
