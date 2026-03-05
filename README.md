@@ -28,19 +28,6 @@ Para analizar el impacto del **data leakage**, se creó una segunda versión del
 Tras esta modificación, el conjunto de entrenamiento pasa a tener **3575 imágenes**, mientras que los conjuntos de validación y test se mantienen sin cambios. Este experimento permite observar cómo el *data leakage* puede producir **métricas de validación artificialmente optimistas**, ya que el modelo se evalúa sobre datos que ya ha visto durante el entrenamiento.
 
 ### Dataset Summary
-
-| Feature | Value |
-|-------|-------|
-| Total images | 3875 |
-| Classes | 1 (person) |
-| Training images | 3175 |
-| Validation images | 400 |
-| Test images | 300 |
-| Annotation type | Bounding boxes |
-| Format | YOLO |
-
-## Dataset Comparison
-
 | Feature | Original dataset | Dataset with leakage |
 |-------|------------------|----------------------|
 | Total images | 3875 | 4275 |
@@ -51,14 +38,6 @@ Tras esta modificación, el conjunto de entrenamiento pasa a tener **3575 imáge
 | Annotation type | Bounding boxes | Bounding boxes |
 | Format | YOLO | YOLO |
 
-### Dataset Comparison
-
-| Split | Original dataset | Dataset with leakage |
-|------|------------------|----------------------|
-| Train | 3175 | 3575 |
-| Validation | 400 | 400 |
-| Test | 300 | 300 |
-| **Total images** | **3875** | **4275** |
 
 ## Demo Person Detector Outdoor-Indoor
 
