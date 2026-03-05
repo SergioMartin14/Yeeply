@@ -2,7 +2,7 @@
 
 ## Dataset
 
-Para el entrenamiento del modelo de detección de personas se ha utilizado el dataset **Persons**, disponible en Roboflow Universe:
+Para entrenar el detector de personas se ha utilizado el dataset **Persons**, disponible en Roboflow Universe:
 
 https://universe.roboflow.com/enova/persons-gfzae
 
