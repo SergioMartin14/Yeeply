@@ -37,4 +37,4 @@ Roboflow permite exportar el dataset en **formato YOLO**, lo que facilita su int
 
 ## Demo
 
-[![Detection Demo](Ejemplo_dataset_1.PNG)](people-detection_out.mp4)
+![Detection Demo](demo_out.gif)
