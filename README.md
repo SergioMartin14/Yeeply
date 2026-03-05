@@ -8,6 +8,8 @@ https://universe.roboflow.com/enova/persons-gfzae
 
 El dataset contiene **3875 imágenes anotadas**, **una única clase (person)** y está compuesto por escenas **indoor** y **outdoor**, donde aparecen personas en diferentes condiciones de iluminación, distancias y perspectivas. 
 
+![Example Dataset](Ejemplo_dataset_1.PNG)
+
 Cada instancia de la clase *person* está anotada mediante **bounding boxes**. 
 
 El dataset se divide en:
