@@ -33,7 +33,9 @@ Roboflow permite exportar el dataset en **formato YOLO**, lo que facilita su int
 | Annotation type | Bounding boxes |
 | Format | YOLO |
 
+## Demo
 
+![Detection Demo](demo-videos/demo-detector-outdoor.gif) 
 
 ## Demo
 
