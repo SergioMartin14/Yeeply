@@ -6,11 +6,13 @@ Para entrenar el detector de personas se ha utilizado el dataset **persons Compu
 
 https://universe.roboflow.com/enova/persons-gfzae
 
-El dataset contiene **3875 imágenes anotadas**, **una única clase (person)** y está compuesto por escenas **indoor** y **outdoor**, donde aparecen personas en diferentes condiciones de iluminación, distancias y perspectivas. 
+El dataset contiene **3875 imágenes anotadas**, **una única clase (person)** y está compuesto por escenas **indoor** y **outdoor**, donde aparecen personas en diferentes condiciones de iluminación, distancias y perspectivas. Cada instancia de la clase *person* está anotada mediante **bounding boxes**. 
 
 ![Example Dataset](Ejemplo_dataset_1.PNG)
 
-Cada instancia de la clase *person* está anotada mediante **bounding boxes**. 
+Una característica destacable de este dataset es que cada imagen suele contener múltiples personas, generando un gran número de bounding boxes por imagen. Además, muchas de estas detecciones corresponden a personas parcialmente visibles, pequeñas o en segundo plano, lo que introduce anotaciones más sutiles y difíciles de detectar.
+
+Estas características hacen que el dataset sea especialmente completo y desafiante, ya que obliga al modelo a aprender a detectar personas en escenarios densos y con alto nivel de oclusión, lo que aumenta la complejidad del entrenamiento pero también mejora la robustez del detector.
 
 El dataset se divide en:
 - **3175 imágenes para entrenamiento**
