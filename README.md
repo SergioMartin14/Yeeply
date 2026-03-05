@@ -50,7 +50,7 @@ Se realizaron **tres entrenamientos diferentes**:
 
 - **Entrenamiento con overfitting**: realizado con el **dataset original**, con **data augmentation pobre**. Debido a las limitaciones de tiempo de Google Colab no fue posible realizar un entrenamiento más largo.
 
-- **Entrenamiento con data leakage**: realizado con el **dataset modificado**, donde las **imágenes de validación se añadieron al conjunto de entrenamiento**. 
+- **Entrenamiento con data leakage**: realizado con el **dataset modificado**, donde las imágenes de validación se añadieron al conjunto de entrenamiento. 
 
 
 ## Demo Person Detector Outdoor-Indoor
