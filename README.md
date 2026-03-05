@@ -6,8 +6,7 @@ Para el entrenamiento del detector de personas se ha utilizado el dataset **pers
 
 https://universe.roboflow.com/enova/persons-gfzae
 
-El dataset contiene **3875 imágenes anotadas**, **una única clase (person)** y está compuesto principalmente por escenas **outdoor**, donde aparecen personas en diferentes condiciones de iluminación, distancias y perspectivas. Cada instancia de la clase *person* está anotada mediante **bounding boxes**. Roboflow permite además exportar el dataset en **formato YOLO**, lo que facilita su integración directa en el pipeline de entrenamiento del modelo.
-
+El dataset contiene **3875 imágenes anotadas**, **una única clase (person)** y está compuesto principalmente por escenas **outdoor**, donde aparecen personas en diferentes condiciones de iluminación, distancias y perspectivas. Cada instancia de la clase *person* está anotada mediante **bounding boxes**. Roboflow permite además exportar el dataset en **formato YOLO**.
 
 
 
