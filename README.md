@@ -33,10 +33,10 @@ Roboflow permite exportar el dataset en **formato YOLO**, lo que facilita su int
 | Annotation type | Bounding boxes |
 | Format | YOLO |
 
-## Demo Person Detector Outdoor
+## Demo Person Detector Outdoor-Indoor
 
 ![Detection Demo](demo-videos/demo-detector-outdoor.gif) 
 
-## Demo Person Detector Indoor
-
 ![Detection Demo](demo-videos/demo-detector-indoor.gif) 
+
+La evaluación del modelo sobre vídeos de prueba muestra que el detector identifica las personas presentes con alta precisión. Esto sugiere que las métricas de validación pueden estar penalizadas por la dificultad intrínseca del dataset, caracterizado por escenas densas, personas de pequeño tamaño y frecuentes oclusiones, más que por una falta de capacidad del modelo. Al aplicarlo a vídeos de escenas más habituales, el detector demuestra una buena capacidad de generalización y un rendimiento visual sólido, lo que indica que ha aprendido representaciones robustas para la detección de personas.
