@@ -33,6 +33,12 @@ Roboflow permite exportar el dataset en **formato YOLO**, lo que facilita su int
 | Annotation type | Bounding boxes |
 | Format | YOLO |
 
+
+
 ## Demo
+
+## Demo
+
+https://github.com/SergioMartin14/Yeeeply/blob/main/people-detection_out.mp4
 
 [▶️ Watch the detection video](people-detection_out.mp4)
