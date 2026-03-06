@@ -129,7 +129,7 @@ Para comparar de forma justa los **tres modelos** (baseline, overfitting y leaka
 |------|--------------|---------|---------|
 | Baseline | 0.3022 | 0.5687 | 0.2804 |
 | Overfitting | 0.2157 | 0.4521 | 0.1792 |
-| Data Leakage | 0.2191 | 0.4635 | 0.1842 |
+| Leakage | 0.2191 | 0.4635 | 0.1842 |
 
 El **modelo baseline** obtiene los mejores resultados en todas las métricas, lo que indica una mejor capacidad de **generalización** al utilizar el dataset original junto con las augmentations por defecto.
 
