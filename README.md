@@ -117,9 +117,7 @@ La **matriz de confusión** permite analizar de forma directa los tipos de acier
 - **False Positives (FP)**: detecciones incorrectas (el modelo detecta una persona donde no la hay).
 - **False Negatives (FN)**: personas presentes en la imagen que el modelo no detecta.
 
-Al comparar los tres entrenamientos, **experimento con data leakage** mejor que **baseline**
-
-el **baseline** debería mostrar un equilibrio razonable entre TP, FP y FN. En el caso de **overfitting**, pueden aparecer más errores en validación debido a la menor capacidad de generalización. En el **experimento con data leakage**, la matriz puede aparentar menos errores de los que realmente existirían en un escenario real, ya que parte de los datos de validación ya fueron vistos durante el entrenamiento.
+Al comparar los tres entrenamientos, en el caso de **overfitting** aparecen más errores en validación debido a la menor capacidad de generalización. En el **experimento con data leakage**, la matriz muestra menos errores de los que realmente existirían en un escenario real, ya que parte de los datos de validación ya fueron vistos durante el entrenamiento.
 
 ## Demo Person Detector Outdoor-Indoor (Baseline Model)
 
