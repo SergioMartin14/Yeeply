@@ -52,7 +52,7 @@ Se realizaron **tres entrenamientos diferentes**:
 
 *La idea inicial era **entrenar el modelo durante muchas más épocas que el baseline** para provocar un **overfitting claro**, permitiendo que el modelo memorizara los datos de entrenamiento. Sin embargo, debido a **las limitaciones de tiempo de ejecución de Google Colab**, no fue posible extender el entrenamiento, por lo que **este modelo terminó entrenándose con el mismo número de épocas que el baseline**, resultando principalmente en **menor variabilidad de datos durante el entrenamiento**.*
 
-- **3. Entrenamiento con data leakage**: realizado con el **dataset modificado** y **data augmentation desactivado**, donde las imágenes de validación se añadieron al conjunto de entrenamiento y el modelo fue entrenado con **baja variabilidad de datos**.
+- **3. Entrenamiento con data leakage**: realizado con el **dataset modificado** y **data augmentation desactivado**, donde las imágenes de validación se añadieron al conjunto de entrenamiento.
 
 
 ### Parámetros de Data Augmentation (todos desactivados)
