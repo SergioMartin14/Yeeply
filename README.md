@@ -107,7 +107,7 @@ Una curva PR más cercana a la esquina superior derecha indica un mejor equilibr
 Comparando los tres entrenamientos:
 - El **baseline** muestra una curva equilibrada.
 - El **overfitting** muestra un comportamiento menos estable, indicando menor capacidad de generalización.
-- El **data leakage** muestra una curva aparentemente mejor, pero esta métrica no reflejan el rendimiento real del modelo en datos no vistos.
+- El **data leakage** muestra una curva aparentemente mejor, pero esta métrica no refleja el rendimiento real del modelo en datos no vistos.
 
 #### Matriz de Confusión
 
