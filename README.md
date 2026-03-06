@@ -199,7 +199,7 @@ Debido a las **limitaciones de tiempo y recursos de hardware disponibles**, el a
 - Utilizar **modelos de YOLO más grandes** que mejoren el desempeño global de la solución.
 - Incorporar **ByteTrack** que permita mantener un **tracking continuo de los objetos detectados (personas)**.
 - Evaluar **YOLO26** siendo el **estado del arte (SOTA)** de este tipo de arquitectura.
-- Probar **diferentes configuraciones de data augmentation** más allá de las utilizadas en el baseline, como *mixup*, *erasing*, *copy_paste*...
+- Probar **diferentes configuraciones de data augmentation** distinta a la utilizada en el baseline (*mixup*, *erasing*, *copy_paste*...).
 - Integrar **herramientas MLOps centradas en el seguimiento de experimentos**, como **ClearML** o **Weights & Biases (W&B)**.
 
 
