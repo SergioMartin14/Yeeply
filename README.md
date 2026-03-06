@@ -78,8 +78,6 @@ A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 par
   <img src="training-images/confusion_matrix_leakage.png" width="44%">
 </p
 
-
-
 ## Demo Person Detector Outdoor-Indoor (Baseline Model)
 
 La **evaluación del modelo** sobre vídeos de prueba muestra que el detector identifica las personas presentes con **alta precisión**. Esto sugiere que las métricas de validación pueden estar penalizadas por la **dificultad intrínseca del dataset**, caracterizado por **escenas densas**, **personas de pequeño tamaño** y **frecuentes oclusiones**, más que por una falta de capacidad del modelo. Al aplicarlo a vídeos de escenas más habituales, el detector demuestra una **buena capacidad de generalización**, habiendo aprendido **representaciones robustas para la detección de personas**.
