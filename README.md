@@ -50,7 +50,7 @@ Se realizaron **tres entrenamientos diferentes**:
 
 - **2. Entrenamiento sin data augmentation**: realizado con el **dataset original** pero con **data augmentation completamente desactivado**.
 
-*La idea inicial era **entrenar el modelo durante muchas más épocas que el baseline** para provocar un **overfitting claro**, permitiendo que el modelo memorizara los datos de entrenamiento. Sin embargo, debido a **las limitaciones de tiempo de ejecución de Google Colab**, no fue posible extender el entrenamiento, por lo que **este modelo terminó entrenándose con el mismo número de épocas que el baseline**, resultando principalmente en **menor variabilidad de datos durante el entrenamiento**.*
+*La idea inicial era **entrenar el modelo durante muchas más épocas que el baseline** para provocar un **overfitting claro**, permitiendo que el modelo memorizara los datos de entrenamiento. Sin embargo, debido a **las limitaciones de tiempo de ejecución de Google Colab**, no fue posible alargar el número de épocas, resultando principalmente en **menor variabilidad de datos durante el entrenamiento**.*
 
 - **3. Entrenamiento con data leakage**: realizado con el **dataset modificado** y **data augmentation desactivado**, donde las imágenes de validación se añadieron al conjunto de entrenamiento.
 
@@ -93,7 +93,7 @@ A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 par
   <img src="training-images/confusion_matrix_base.png" width="44%">
 </p>
 
-### 2. Overfitting Training (dataset original + augmentation reducido)
+### 2. Sin Data Augmentation Training (dataset original + augmentation reducido)
 
 ![Baseline Training Results](training-images/results_overfit.png)
 <p align="center">
@@ -120,7 +120,7 @@ Las métricas **mAP@0.5** y **mAP@0.5:0.95** miden la calidad global de las dete
 
 En el **entrenamiento baseline**, ambas métricas crecen de forma progresiva, indicando que el modelo aprende a localizar correctamente a las personas.  
 
-En el caso de **overfitting**, el modelo tiende a ajustarse más a los datos de entrenamiento (al no haber data augmentation) y limita su capacidad de generalización. 
+En el caso de **sin data augmentation**, el modelo tiende a ajustarse más a los datos de entrenamiento y limita su capacidad de generalización. 
 
 En el experimento con **data leakage**, las métricas pueden aparecer **artificialmente elevadas**, ya que el modelo está siendo evaluado con imágenes que también han sido utilizadas durante el entrenamiento. Esto genera una estimación demasiado optimista del rendimiento real.
 
@@ -137,7 +137,7 @@ Una curva PR más cercana a la esquina superior derecha indica un mejor equilibr
 
 Comparando los tres entrenamientos:
 - El **baseline** muestra una curva equilibrada.
-- El **overfitting** muestra un comportamiento menos estable, indicando menor capacidad de generalización.
+- El **sin data augmentation** muestra un comportamiento menos estable, indicando menor capacidad de generalización.
 - El **data leakage** muestra una curva aparentemente mejor, pero esta métrica no refleja el rendimiento real del modelo en datos no vistos.
 
 #### Matriz de Confusión
@@ -148,11 +148,11 @@ La **matriz de confusión** permite analizar de forma directa los tipos de acier
 - **False Positives (FP)**: detecciones incorrectas (el modelo detecta una persona donde no la hay).
 - **False Negatives (FN)**: personas presentes en la imagen que el modelo no detecta.
 
-Al comparar los tres entrenamientos, en el caso de **overfitting** aparecen más errores en validación debido a la menor capacidad de generalización. En el **experimento con data leakage**, la matriz muestra menos errores de los que realmente existirían en un escenario real, ya que parte de los datos de validación ya fueron vistos durante el entrenamiento.
+Al comparar los tres entrenamientos, en el caso de **sin data augmentation** aparecen más errores en validación debido a la menor capacidad de generalización. En el **experimento con data leakage**, la matriz muestra menos errores de los que realmente existirían en un escenario real, ya que parte de los datos de validación ya fueron vistos durante el entrenamiento.
 
 ## Test-set Evaluation (Comparing the 3 trained models)
 
-Para comparar de forma justa los **tres modelos** (baseline, overfitting y leakage) se evaluan todos sobre el **subset de test**, que no se usó durante el entrenamiento ni la validación. Esta evaluación es clave para **desenmascarar el modelo con data leakage**, ya que un leakage suele inflar métricas en validación, pero **no debería traducirse en una mejora real en test**.
+Para comparar de forma justa los **tres modelos** (baseline, sin data augmentation y leakage) se evaluan todos sobre el **subset de test**, que no se usó durante el entrenamiento ni la validación. Esta evaluación es clave para **desenmascarar el modelo con data leakage**, ya que un leakage suele inflar métricas en validación, pero **no debería traducirse en una mejora real en test**.
 
 ### Val Metrics Comparison
 
@@ -167,7 +167,7 @@ Para comparar de forma justa los **tres modelos** (baseline, overfitting y leaka
 | Model | mAP@0.5:0.95 | mAP@0.5 | mAP@0.75 |
 |------|--------------|---------|---------|
 | Baseline | 0.3022 | 0.5687 | 0.2804 |
-| Overfitting | 0.2157 | 0.4521 | 0.1792 |
+| Sin data aug | 0.2157 | 0.4521 | 0.1792 |
 | Leakage | 0.2191 | 0.4635 | 0.1842 |
 
 
