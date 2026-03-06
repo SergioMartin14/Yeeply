@@ -140,27 +140,15 @@ Para comparar de forma justa los **tres modelos** (baseline, overfitting y leaka
 | Leakage | 0.2191 | 0.4635 | 0.1842 |
 
 
+El **modelo baseline** obtiene el mejor rendimiento en el conjunto de **test** en todas las métricas. En **mAP@0.5**, el baseline alcanza **0.5687**, mientras que el modelo con **overfitting** obtiene **0.4521** y el modelo con **data leakage** **0.4635**. 
 
+Al comparar las métricas entre **validación (val)** y **test**, se observan diferencias claras en los tres modelos:
 
+- El **baseline** pasa de **0.6812 en validación** a **0.5687 en test**, con una diferencia de **-0.1125**, lo que indica una ligera pérdida de rendimiento al generalizar a datos no vistos.
+- El **modelo con overfitting** pasa de **0.5662 en validación** a **0.4521 en test**, una caída de **-0.1141**, mostrando un comportamiento similar al baseline pero con peores métricas generales lo que confirma que la ausencia de *data augmentation* reduce la capacidad de generalización.
+- El **modelo con data leakage** muestra la mayor diferencia: **0.7664 en validación** frente a **0.4635 en test**, una caída de **-0.3029**, lo que indica que las métricas de validación estaban infladas artificialmente debido al leakage.
 
-El **modelo baseline** obtiene los mejores resultados en todas las métricas, lo que indica una mejor capacidad de **generalización** al utilizar el dataset original junto con las augmentations por defecto.
-
-El modelo **overfitting** presenta una caída clara en mAP, lo que sugiere que el modelo se ajustó demasiado a los datos de entrenamiento al no utilizar data augmentation.
-
-El modelo con **data leakage** muestra métricas ligeramente mejores que el overfitting, pero sigue siendo inferior al baseline. Esto confirma que el *data leakage* puede inflar artificialmente las métricas durante validación, pero **no mejora el rendimiento real en el conjunto de test**.
-
-### Interpretación de Resultados
-
-El **modelo baseline** obtiene el mejor rendimiento en el conjunto de **test** en todas las métricas. En **mAP@0.5**, el baseline obtiene **0.5687**, mientras que el modelo overfitting alcanza **0.4521** y el de leakage **0.4635**, lo que representa caídas de **0.1166** y **0.1052** respectivamente.  
-
-Al comparar las métricas entre **validación (val)** y **test**, también se observan diferencias importantes:
-
-- El **modelo baseline** obtiene **0.4053 mAP@0.5:0.95 en validación** frente a **0.3022 en test**, una diferencia de **-0.1031**, lo que indica un pequeño gap de generalización pero un comportamiento relativamente consistente.
-- El **modelo con overfitting** pasa de **0.3017 en validación** a **0.2157 en test**, una caída de **-0.0860**, lo que confirma que la ausencia de *data augmentation* reduce la capacidad de generalización.
-- El **modelo con data leakage** muestra la mayor discrepancia: **0.5273 en validación** frente a **0.2191 en test**, con una diferencia de **-0.3082**, lo que indica que las métricas de validación estaban fuertemente infladas debido al leakage.
-
-En conjunto, los resultados muestran que **el modelo baseline ofrece el rendimiento más robusto y generalizable**, mientras que **el overfitting reduce el rendimiento en test** y **el data leakage puede inflar artificialmente las métricas de validación sin mejorar el rendimiento real en el conjunto de test**.
-
+En conjunto, el **baseline mantiene el mejor rendimiento real en test**, mientras que el **modelo con leakage aparenta ser mejor en validación pero no generaliza correctamente**, evidenciando el efecto negativo del data leakage.
 
 
 ## Demo Person Detector Outdoor-Indoor (Baseline Model)
