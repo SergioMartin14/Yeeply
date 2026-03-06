@@ -62,30 +62,15 @@ A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 par
 
 ![Baseline Training Results](training-images/results_base.png)
 
-En este entrenamiento se utilizó el **dataset original** junto con las **técnicas de data augmentation por defecto de YOLOv8**.  
-Las curvas muestran una **disminución progresiva de las losses** tanto en entrenamiento como en validación, mientras que las métricas de **precision, recall y mAP aumentan de forma estable**, lo que indica un proceso de aprendizaje correcto sin signos evidentes de sobreajuste.
-
----
-
 ### 2. Overfitting Training (dataset original + augmentation reducido)
 
-![Overfitting Training Results](images/results_overfitting.png)
-
-En este experimento se redujeron las técnicas de **data augmentation**, manteniendo el dataset original.  
-Esto reduce la variabilidad de los datos vistos por el modelo durante el entrenamiento, favoreciendo la aparición de **overfitting**. Aunque las pérdidas de entrenamiento disminuyen rápidamente, la mejora en validación es más limitada, lo que sugiere una menor capacidad de generalización.
-
----
+![Baseline Training Results](training-images/results_overfit.png)
 
 ### 3. Data Leakage Training (dataset modificado)
 
-![Data Leakage Training Results](images/results_leakage.png)
+![Baseline Training Results](training-images/results_leakage.png)
 
-En este caso se utilizó el **dataset modificado con data leakage**, donde las imágenes del conjunto de validación se añadieron al conjunto de entrenamiento.  
-Como resultado, las métricas de validación tienden a mostrar valores **artificialmente más altos**, ya que el modelo se evalúa sobre datos que han sido vistos durante el entrenamiento. Este experimento ilustra cómo el **data leakage puede producir métricas engañosamente optimistas**.
 
----
-
-En conjunto, estos tres experimentos permiten comparar el comportamiento del modelo bajo **condiciones de entrenamiento normales**, **situaciones de sobreajuste**, y **escenarios con fuga de información entre conjuntos de datos**.
 
 ## Demo Person Detector Outdoor-Indoor
 
