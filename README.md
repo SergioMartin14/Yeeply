@@ -57,7 +57,11 @@ A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 par
 ### 1. Baseline Training (dataset original + augmentations por defecto)
 
 ![Baseline Training Results](training-images/results_base.png)
-![Baseline Training Results](training-images/BoxPR_curve_base.png)
+<p align="center">
+  <img src="training-images/BoxPR_curve_base.png" width="32%">
+  <img src="training-images/BoxPR_curve_overfit.png" width="32%">
+  <img src="training-images/BoxPR_curve_leakage.png" width="32%">
+</p>
 ![Baseline Training Results](training-images/confusion_matrix_base.png)
 
 ### 2. Overfitting Training (dataset original + augmentation reducido)
