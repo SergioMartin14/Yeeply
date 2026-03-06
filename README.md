@@ -131,7 +131,7 @@ La **curva Precision–Recall** muestra la relación entre **precision** y **rec
 Mover el umbral implica cambiar el criterio con el que el modelo decide si una detección se considera válida:
 
 - **Umbral alto** → menos detecciones, mayor *precision*, pero menor *recall* (porque al hacer menos detecciones lo lógico es que las pocas que hace las acierte pero que se deje muchas personas sin detectar).
-- **Umbral bajo** → más detecciones, mayor *recall*, pero mayor riesgo de *false positives* (porque al hacer más detecciones lo lógico es que falle más pero que no se deje personas sin detectar). 
+- **Umbral bajo** → más detecciones, mayor *recall*, pero mayor riesgo de *false positives* (porque al hacer más detecciones lo lógico es que haga más erróneas pero que no se deje personas sin detectar). 
 
 Una curva PR más cercana a la esquina superior derecha indica un mejor equilibrio entre precisión y cobertura.
 
