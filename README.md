@@ -78,6 +78,59 @@ A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 par
   <img src="training-images/confusion_matrix_leakage.png" width="44%">
 </p>
 
+### Interpretation
+
+Para analizar el comportamiento del modelo en los tres entrenamientos (baseline, overfitting y data leakage), se comparan tres elementos clave: **mAP**, **curvas Precision–Recall** y **matrices de confusión**. Cada uno aporta una perspectiva distinta sobre el rendimiento del detector.
+
+### mAP@0.5 y mAP@0.5:0.95
+
+Las métricas **mAP@0.5** y **mAP@0.5:0.95** miden la calidad global de las detecciones considerando el grado de solapamiento entre las *bounding boxes* predichas y las reales (IoU).
+
+- **mAP@0.5** utiliza un umbral de IoU de 0.5, por lo que es más permisivo: basta con que la detección se aproxime razonablemente al objeto.
+- **mAP@0.5:0.95** promedia resultados en múltiples umbrales de IoU (de 0.5 a 0.95), siendo una métrica **más estricta y representativa** del rendimiento real del detector.
+
+En el **entrenamiento baseline**, ambas métricas crecen de forma progresiva, indicando que el modelo aprende a localizar correctamente a las personas.  
+
+En el caso de **overfitting**, el modelo tiende a ajustarse más a los datos de entrenamiento, lo que puede limitar su capacidad de generalización. Esto se refleja en mejoras más modestas en validación y en una posible diferencia mayor entre métricas de entrenamiento y validación.
+
+En el experimento con **data leakage**, las métricas pueden aparecer **artificialmente elevadas**, ya que el modelo está siendo evaluado con imágenes que también han sido utilizadas durante el entrenamiento. Esto genera una estimación demasiado optimista del rendimiento real.
+
+---
+
+### Precision–Recall Curve (PR Curve)
+
+La **curva Precision–Recall** muestra la relación entre **precision** y **recall** al variar el **umbral de confianza** de las detecciones.
+
+Mover el umbral implica cambiar el criterio con el que el modelo decide si una detección se considera válida:
+
+- **Umbral alto** → menos detecciones, mayor *precision*, pero menor *recall*.
+- **Umbral bajo** → más detecciones, mayor *recall*, pero mayor riesgo de *false positives*.
+
+Una curva PR más cercana a la esquina superior derecha indica un mejor equilibrio entre precisión y cobertura.
+
+Comparando los tres entrenamientos:
+- El **baseline** suele mostrar una curva equilibrada.
+- El **overfitting** puede mostrar un comportamiento menos estable, indicando menor capacidad de generalización.
+- El **data leakage** puede producir curvas aparentemente mejores, pero estas métricas no reflejan el rendimiento real del modelo en datos no vistos.
+
+---
+
+### Matriz de Confusión
+
+La **matriz de confusión** permite analizar de forma directa los tipos de aciertos y errores del modelo. En detección de objetos, suele reflejar principalmente:
+
+- **True Positives (TP)**: personas detectadas correctamente.
+- **False Positives (FP)**: detecciones incorrectas (el modelo detecta una persona donde no la hay).
+- **False Negatives (FN)**: personas presentes en la imagen que el modelo no detecta.
+
+Desde un punto de vista operativo:
+
+- Un número alto de **TP** indica buena capacidad de detección.
+- Un aumento de **FP** implica detecciones espurias.
+- Un aumento de **FN** indica que el modelo está perdiendo objetos reales.
+
+Al comparar los tres entrenamientos, el **baseline** debería mostrar un equilibrio razonable entre TP, FP y FN. En el caso de **overfitting**, pueden aparecer más errores en validación debido a la menor capacidad de generalización. En el **experimento con data leakage**, la matriz puede aparentar menos errores de los que realmente existirían en un escenario real, ya que parte de los datos de validación ya fueron vistos durante el entrenamiento.
+
 ## Demo Person Detector Outdoor-Indoor (Baseline Model)
 
 La **evaluación del modelo** sobre vídeos de prueba muestra que el detector identifica las personas presentes con **alta precisión**. Esto sugiere que las métricas de validación pueden estar penalizadas por la **dificultad intrínseca del dataset**, caracterizado por **escenas densas**, **personas de pequeño tamaño** y **frecuentes oclusiones**, más que por una falta de capacidad del modelo. Al aplicarlo a vídeos de escenas más habituales, el detector demuestra una **buena capacidad de generalización**, habiendo aprendido **representaciones robustas para la detección de personas**.
