@@ -46,11 +46,11 @@ Como consecuencia de estas restricciones, se utilizó el modelo **YOLOv8n** y se
 
 Se realizaron **tres entrenamientos diferentes**:
 
-- **Entrenamiento base (óptimo)**: realizado con el **dataset original** y las **técnicas de data augmentation por defecto** de YOLOv8. 
+- **1. <u>Entrenamiento base (óptimo)<u>**: realizado con el **dataset original** y las **técnicas de data augmentation por defecto** de YOLOv8. 
 
-- **Entrenamiento sin data augmentation**: realizado con el **dataset original** pero con **data augmentation completamente desactivado**. La idea inicial era **entrenar el modelo durante muchas más épocas que el baseline** para provocar un **overfitting claro**, permitiendo que el modelo memorizara los datos de entrenamiento. Sin embargo, debido a **las limitaciones de tiempo de ejecución de Google Colab**, no fue posible extender el entrenamiento, por lo que **este modelo terminó entrenándose con el mismo número de épocas que el baseline**, resultando principalmente en **menor variabilidad de datos durante el entrenamiento**.
+- **2. <u>Entrenamiento sin data augmentation<u>**: realizado con el **dataset original** pero con **data augmentation completamente desactivado**. *La idea inicial era **entrenar el modelo durante muchas más épocas que el baseline** para provocar un **overfitting claro**, permitiendo que el modelo memorizara los datos de entrenamiento. Sin embargo, debido a **las limitaciones de tiempo de ejecución de Google Colab**, no fue posible extender el entrenamiento, por lo que **este modelo terminó entrenándose con el mismo número de épocas que el baseline**, resultando principalmente en **menor variabilidad de datos durante el entrenamiento**.*
 
-- **Entrenamiento con data leakage**: realizado con un **dataset modificado** en el que **las imágenes del conjunto de validación se añadieron al conjunto de entrenamiento**, generando así **data leakage**. Este modelo también se entrenó con **data augmentation desactivado**, por lo que además de la fuga de información entre conjuntos, el modelo fue entrenado con **baja variabilidad de datos**
+- **3. <u>Entrenamiento con data leakage<u>**: realizado con un **dataset modificado** en el que **las imágenes del conjunto de validación se añadieron al conjunto de entrenamiento**, generando así **data leakage**. Este modelo también se entrenó con **data augmentation desactivado**, por lo que además de la fuga de información entre conjuntos, el modelo fue entrenado con **baja variabilidad de datos**
 
 - ### Parámetros de Data Augmentation (todos desactivados)
 
