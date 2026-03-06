@@ -52,11 +52,13 @@ Se realizaron **tres entrenamientos diferentes**:
 
 - **Entrenamiento con data leakage**: realizado con el **dataset modificado** y **data augmentation pobre**, donde las imágenes de validación se añadieron al conjunto de entrenamiento.
 
-A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 para los tres entrenamientos realizados. Cada gráfico resume la evolución de las **losses de entrenamiento y validación**, así como las principales **métricas de evaluación** (precision, recall y mAP).
+A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 para los tres entrenamientos realizados. Cada gráfico resume la evolución de las **losses de entrenamiento y validación**, así como las principales **métricas de evaluación** (precision, recall y mAP). Además, se incluyen las **curvas Precision–Recall (PR)** y las **matrices de confusión**.
 
 ### 1. Baseline Training (dataset original + augmentations por defecto)
 
 ![Baseline Training Results](training-images/results_base.png)
+![Baseline Training Results](training-images/BoxPR_curve_base.png)
+![Baseline Training Results](training-images/confusion_matrix_base.png)
 
 ### 2. Overfitting Training (dataset original + augmentation reducido)
 
