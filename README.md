@@ -70,6 +70,7 @@ A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 par
   <img src="training-images/confusion_matrix_overfit.png" width="44%">
 </p
 
+
 ### 3. Data Leakage Training (dataset modificado)
 
 ![Baseline Training Results](training-images/results_leakage.png)
