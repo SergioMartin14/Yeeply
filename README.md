@@ -58,9 +58,8 @@ A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 par
 
 ![Baseline Training Results](training-images/results_base.png)
 <p align="center">
-  <img src="training-images/BoxPR_curve_base.png" width="32%">
-  <img src="training-images/BoxPR_curve_overfit.png" width="32%">
-  <img src="training-images/BoxPR_curve_leakage.png" width="32%">
+  <img src="training-images/BoxPR_curve_base.png" width="44%">
+  <img src="training-images/BoxPR_curve_overfit.png" width="44%">
 </p>
 ![Baseline Training Results](training-images/confusion_matrix_base.png)
 
