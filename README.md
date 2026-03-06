@@ -19,7 +19,7 @@ El dataset se divide en:
 - **400 imágenes para validación**
 - **300 imágenes para test**
 
-Roboflow permite exportar el dataset en **formato YOLO**, lo que facilita su integración directa con modelos como YOLOv8.
+Roboflow permite exportar el dataset en **formato YOLO** facilitando su integración directa con modelos como YOLOv8.
 
 ### Data Leakage Experiment
 
