@@ -192,7 +192,7 @@ La **evaluación del modelo** sobre vídeos de prueba muestra que el detector id
 
 ## Limitaciones y trabajo futuro
 
-Debido a las **limitaciones de tiempo y recursos de hardware disponibles**, el alcance de los experimentos ha sido necesariamente limitado. Todos los entrenamientos se han ejecutado en **Google Colab**, lo que impone restricciones tanto en **tiempo máximo de ejecución** como en **capacidad de GPU**, impidiendo realizar entrenamientos más largos, explorar arquitecturas más grandes o ejecutar un mayor número de experimentos. Aun así, los experimentos realizados permiten **entender el comportamiento del modelo ante diferentes configuraciones de entrenamiento** (baseline, sin data augmentation y con data leakage), así como identificar **qué factores afectan más a la generalización del modelo**. 
+Debido a las **limitaciones de tiempo y recursos de hardware disponibles**, el alcance de los experimentos ha sido necesariamente limitado. Todos los entrenamientos se han ejecutado en **Google Colab**, lo que impone restricciones tanto en **tiempo máximo de ejecución** como en **capacidad de GPU**. Aun así, los experimentos realizados permiten **entender el comportamiento del modelo ante diferentes configuraciones de entrenamiento** (baseline, sin data augmentation y con data leakage), así como identificar **qué factores afectan más a la generalización del modelo**. 
 
 ### TO DO 
 
