@@ -48,9 +48,37 @@ Se realizaron **tres entrenamientos diferentes**:
 
 - **Entrenamiento base (óptimo)**: realizado con el **dataset original** y las **técnicas de data augmentation por defecto** de YOLOv8. 
 
-- **Entrenamiento con overfitting**: realizado con el **dataset original** y **data augmentation pobre**. Debido a las limitaciones de tiempo de Google Colab no fue posible realizar un entrenamiento más largo.
+- **Entrenamiento sin data augmentation**: realizado con el **dataset original** pero con **data augmentation completamente desactivado** (todos los parámetros de augmentación establecidos en 0). De esta forma, el modelo se entrena únicamente con las imágenes originales, sin generar variaciones artificiales, lo que reduce significativamente la diversidad de los datos vistos durante el entrenamiento. La idea inicial era **entrenar el modelo durante muchas más épocas que el baseline** para provocar un **overfitting claro**, permitiendo que el modelo memorizara los datos de entrenamiento. Sin embargo, debido a **las limitaciones de tiempo de ejecución de Google Colab**, no fue posible extender el entrenamiento, por lo que **este modelo terminó entrenándose con el mismo número de épocas que el baseline**, resultando principalmente en **menor variabilidad de datos durante el entrenamiento**.
 
-- **Entrenamiento con data leakage**: realizado con el **dataset modificado** y **data augmentation pobre**, donde las imágenes de validación se añadieron al conjunto de entrenamiento.
+- **Entrenamiento con data leakage**: realizado con un **dataset modificado** en el que **las imágenes del conjunto de validación se añadieron al conjunto de entrenamiento**, generando así **data leakage**. Este modelo también se entrenó con **data augmentation desactivado**, por lo que además de la fuga de información entre conjuntos, el modelo fue entrenado con **baja variabilidad de datos**
+
+- ### Parámetros de Data Augmentation (todos desactivados)
+
+```python
+# -- Alteración de Color (Fotometría) --
+hsv_h=0.0       # Sin variación de tono
+hsv_s=0.0       # Sin variación de saturación
+hsv_v=0.0       # Sin variación de brillo
+bgr=0.0
+
+# -- Alteración Espacial (Geometría) --
+degrees=0.0     # Sin rotación
+translate=0.0   # Sin traslación
+scale=0.0       # Sin escalado (zoom in/out)
+shear=0.0       # Sin cizallado
+perspective=0.0 # Sin distorsión
+
+# -- Volteos --
+flipud=0.0      # Sin volteo vertical
+fliplr=0.0      # Sin volteo horizontal
+
+# -- Técnicas Avanzadas de Composición --
+mosaic=0.0      # Sin mosaic
+mixup=0.0
+copy_paste=0.0
+erasing=0.0     # Sin borrado aleatorio
+crop_fraction=1.0
+```
 
 A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 para los tres entrenamientos realizados. Cada gráfico resume la evolución de las **losses de entrenamiento y validación**, así como las principales **métricas de evaluación** (precision, recall y mAP). Además, se incluyen las **curvas Precision–Recall (PR)** y las **matrices de confusión**.
 
