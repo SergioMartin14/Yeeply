@@ -131,6 +131,14 @@ Para comparar de forma justa los **tres modelos** (baseline, overfitting y leaka
 | Overfitting | 0.2157 | 0.4521 | 0.1792 |
 | Leakage | 0.2191 | 0.4635 | 0.1842 |
 
+### Val Metrics Comparison
+
+| Model | mAP@0.5:0.95 | mAP@0.5 | mAP@0.75 |
+|------|--------------|---------|---------|
+| Baseline | 0.4053 | 0.6812 | 0.4138 |
+| Overfitting | 0.3017 | 0.5662 | 0.2850 |
+| Leakage | 0.5273 | 0.7664 | 0.5869 |
+
 El **modelo baseline** obtiene los mejores resultados en todas las métricas, lo que indica una mejor capacidad de **generalización** al utilizar el dataset original junto con las augmentations por defecto.
 
 El modelo **overfitting** presenta una caída clara en mAP, lo que sugiere que el modelo se ajustó demasiado a los datos de entrenamiento al no utilizar data augmentation.
