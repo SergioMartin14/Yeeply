@@ -89,7 +89,7 @@ Las métricas **mAP@0.5** y **mAP@0.5:0.95** miden la calidad global de las dete
 
 En el **entrenamiento baseline**, ambas métricas crecen de forma progresiva, indicando que el modelo aprende a localizar correctamente a las personas.  
 
-En el caso de **overfitting**, el modelo tiende a ajustarse más a los datos de entrenamiento, lo que puede limitar su capacidad de generalización. Esto se refleja en mejoras más modestas en validación y en una posible diferencia mayor entre métricas de entrenamiento y validación.
+En el caso de **overfitting**, el modelo tiende a ajustarse más a los datos de entrenamiento (al no haber data augmentation) y limita su capacidad de generalización. 
 
 En el experimento con **data leakage**, las métricas pueden aparecer **artificialmente elevadas**, ya que el modelo está siendo evaluado con imágenes que también han sido utilizadas durante el entrenamiento. Esto genera una estimación demasiado optimista del rendimiento real.
 
@@ -99,31 +99,27 @@ La **curva Precision–Recall** muestra la relación entre **precision** y **rec
 
 Mover el umbral implica cambiar el criterio con el que el modelo decide si una detección se considera válida:
 
-- **Umbral alto** → menos detecciones, mayor *precision*, pero menor *recall*.
-- **Umbral bajo** → más detecciones, mayor *recall*, pero mayor riesgo de *false positives*.
+- **Umbral alto** → menos detecciones, mayor *precision*, pero menor *recall* (porque al hacer menos detecciones lo lógico es que las pocas que hace las acierte).
+- **Umbral bajo** → más detecciones, mayor *recall*, pero mayor riesgo de *false positives* (porque al hacer más detecciones lo lógico es que falle más). 
 
 Una curva PR más cercana a la esquina superior derecha indica un mejor equilibrio entre precisión y cobertura.
 
 Comparando los tres entrenamientos:
-- El **baseline** suele mostrar una curva equilibrada.
-- El **overfitting** puede mostrar un comportamiento menos estable, indicando menor capacidad de generalización.
-- El **data leakage** puede producir curvas aparentemente mejores, pero estas métricas no reflejan el rendimiento real del modelo en datos no vistos.
+- El **baseline** muestra una curva equilibrada.
+- El **overfitting** muestra un comportamiento menos estable, indicando menor capacidad de generalización.
+- El **data leakage** muestra una curva aparentemente mejor, pero esta métrica no reflejan el rendimiento real del modelo en datos no vistos.
 
 #### Matriz de Confusión
 
-La **matriz de confusión** permite analizar de forma directa los tipos de aciertos y errores del modelo. En detección de objetos, suele reflejar principalmente:
+La **matriz de confusión** permite analizar de forma directa los tipos de aciertos y errores del modelo. 
 
 - **True Positives (TP)**: personas detectadas correctamente.
 - **False Positives (FP)**: detecciones incorrectas (el modelo detecta una persona donde no la hay).
 - **False Negatives (FN)**: personas presentes en la imagen que el modelo no detecta.
 
-Desde un punto de vista operativo:
+Al comparar los tres entrenamientos, **experimento con data leakage** mejor que **baseline**
 
-- Un número alto de **TP** indica buena capacidad de detección.
-- Un aumento de **FP** implica detecciones espurias.
-- Un aumento de **FN** indica que el modelo está perdiendo objetos reales.
-
-Al comparar los tres entrenamientos, el **baseline** debería mostrar un equilibrio razonable entre TP, FP y FN. En el caso de **overfitting**, pueden aparecer más errores en validación debido a la menor capacidad de generalización. En el **experimento con data leakage**, la matriz puede aparentar menos errores de los que realmente existirían en un escenario real, ya que parte de los datos de validación ya fueron vistos durante el entrenamiento.
+el **baseline** debería mostrar un equilibrio razonable entre TP, FP y FN. En el caso de **overfitting**, pueden aparecer más errores en validación debido a la menor capacidad de generalización. En el **experimento con data leakage**, la matriz puede aparentar menos errores de los que realmente existirían en un escenario real, ya que parte de los datos de validación ya fueron vistos durante el entrenamiento.
 
 ## Demo Person Detector Outdoor-Indoor (Baseline Model)
 
