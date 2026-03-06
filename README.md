@@ -148,7 +148,7 @@ La **matriz de confusión** permite analizar de forma directa los tipos de acier
 - **False Positives (FP)**: detecciones incorrectas (el modelo detecta una persona donde no la hay).
 - **False Negatives (FN)**: personas presentes en la imagen que el modelo no detecta.
 
-Al comparar los tres entrenamientos, en el caso de **sin data augmentation** aparecen más errores en validación debido a la menor capacidad de generalización. En el **experimento con data leakage**, la matriz muestra menos errores de los que realmente existirían en un escenario real, ya que parte de los datos de validación ya fueron vistos durante el entrenamiento.
+Al comparar los tres entrenamientos, en el caso **sin data augmentation** aparecen más errores en validación debido a la menor capacidad de generalización. En el **experimento con data leakage**, la matriz muestra menos errores de los que realmente existirían en un escenario real, ya que parte de los datos de validación ya fueron vistos durante el entrenamiento.
 
 ## Test-set Evaluation (Comparing the 3 trained models)
 
@@ -171,7 +171,7 @@ Para comparar de forma justa los **tres modelos** (baseline, sin data augmentati
 | Leakage | 0.2191 | 0.4635 | 0.1842 |
 
 
-El **modelo baseline** obtiene el mejor rendimiento en el conjunto de **test** en todas las métricas. En **mAP@0.5**, el baseline alcanza **0.5687**, mientras que el modelo con **sin data augmentation** obtiene **0.4521** y el modelo con **data leakage** **0.4635**. 
+El **modelo baseline** obtiene el mejor rendimiento en el conjunto de **test** en todas las métricas. En **mAP@0.5**, el baseline alcanza **0.5687**, mientras que el modelo **sin data augmentation** obtiene **0.4521** y el modelo con **data leakage** **0.4635**. 
 
 Al comparar las métricas entre **validación (val)** y **test**, se observan diferencias claras en los tres modelos:
 
