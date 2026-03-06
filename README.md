@@ -60,7 +60,7 @@ A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 par
 
 ### 1. Baseline Training (dataset original + augmentations por defecto)
 
-![Baseline Training Results](images/results_baseline.png)
+![Baseline Training Results](training-images/results_baseline.png)
 
 En este entrenamiento se utilizó el **dataset original** junto con las **técnicas de data augmentation por defecto de YOLOv8**.  
 Las curvas muestran una **disminución progresiva de las losses** tanto en entrenamiento como en validación, mientras que las métricas de **precision, recall y mAP aumentan de forma estable**, lo que indica un proceso de aprendizaje correcto sin signos evidentes de sobreajuste.
