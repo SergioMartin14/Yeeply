@@ -189,3 +189,17 @@ La **evaluación del modelo** sobre vídeos de prueba muestra que el detector id
 ![Detection Demo](demo-videos/demo-detector-outdoor.gif) 
 
 ![Detection Demo](demo-videos/demo-detector-indoor.gif) 
+
+## Limitaciones y trabajo futuro
+
+Debido a las **limitaciones de tiempo y recursos de hardware disponibles**, el alcance de los experimentos realizados ha sido necesariamente limitado. Todos los entrenamientos se han ejecutado en **Google Colab**, lo que impone restricciones tanto en **tiempo máximo de ejecución** como en **capacidad de GPU**, impidiendo realizar entrenamientos más largos, explorar arquitecturas más grandes o ejecutar un mayor número de experimentos.
+
+Aun así, los experimentos realizados permiten **entender el comportamiento del modelo ante diferentes configuraciones de entrenamiento** (baseline, sin data augmentation y con data leakage), así como identificar **qué factores afectan más a la generalización del modelo**. 
+
+## TO DO / Trabajo futuro
+
+- Utilizar **modelos de YOLO más grandes** que puedan mejorar el desempeño global de la solución.
+- Incorporar **ByteTrack** para el seguimiento de personas en vídeo, permitiendo mantener un **tracking continuo de los objetos detectados**.
+- Evaluar **YOLO26**, considerado actualmente el **estado del arte (SOTA)** dentro de este tipo de arquitecturas.
+- Probar **diferentes configuraciones de data augmentation** más allá de las utilizadas en el baseline, como *mixup*, *erasing*, *copy_paste*, entre otras.
+- Integrar el pipeline con herramientas de **MLOps orientadas al seguimiento de experimentos**, como **ClearML** o **Weights & Biases (W&B)**.
