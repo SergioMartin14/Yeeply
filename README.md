@@ -52,8 +52,6 @@ Se realizaron **tres entrenamientos diferentes**:
 
 - **Entrenamiento con data leakage**: realizado con el **dataset modificado** y **data augmentation pobre**, donde las imágenes de validación se añadieron al conjunto de entrenamiento.
 
-### Training Results
-
 A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 para los tres entrenamientos realizados. Cada gráfico resume la evolución de las **losses de entrenamiento y validación**, así como las principales **métricas de evaluación** (precision, recall y mAP).
 
 ### 1. Baseline Training (dataset original + augmentations por defecto)
