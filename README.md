@@ -93,7 +93,7 @@ A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 par
   <img src="training-images/confusion_matrix_base.png" width="44%">
 </p>
 
-### 2. Sin Data Augmentation Training (dataset original + augmentation reducido)
+### 2. No Data Augmentation Training (dataset original + augmentation reducido)
 
 ![Baseline Training Results](training-images/results_overfit.png)
 <p align="center">
@@ -159,7 +159,7 @@ Para comparar de forma justa los **tres modelos** (baseline, sin data augmentati
 | Model | mAP@0.5:0.95 | mAP@0.5 | mAP@0.75 |
 |------|--------------|---------|---------|
 | Baseline | 0.4053 | 0.6812 | 0.4138 |
-| Overfitting | 0.3017 | 0.5662 | 0.2850 |
+| No augm | 0.3017 | 0.5662 | 0.2850 |
 | Leakage | 0.5273 | 0.7664 | 0.5869 |
 
 ### Test Metrics Comparison
@@ -167,16 +167,16 @@ Para comparar de forma justa los **tres modelos** (baseline, sin data augmentati
 | Model | mAP@0.5:0.95 | mAP@0.5 | mAP@0.75 |
 |------|--------------|---------|---------|
 | Baseline | 0.3022 | 0.5687 | 0.2804 |
-| Sin data aug | 0.2157 | 0.4521 | 0.1792 |
+| No augm | 0.2157 | 0.4521 | 0.1792 |
 | Leakage | 0.2191 | 0.4635 | 0.1842 |
 
 
-El **modelo baseline** obtiene el mejor rendimiento en el conjunto de **test** en todas las métricas. En **mAP@0.5**, el baseline alcanza **0.5687**, mientras que el modelo con **overfitting** obtiene **0.4521** y el modelo con **data leakage** **0.4635**. 
+El **modelo baseline** obtiene el mejor rendimiento en el conjunto de **test** en todas las métricas. En **mAP@0.5**, el baseline alcanza **0.5687**, mientras que el modelo con **sin data augmentation** obtiene **0.4521** y el modelo con **data leakage** **0.4635**. 
 
 Al comparar las métricas entre **validación (val)** y **test**, se observan diferencias claras en los tres modelos:
 
 - El **baseline** pasa de **0.6812 en validación** a **0.5687 en test**, con una diferencia de **-0.1125**, lo que indica una ligera pérdida de rendimiento al generalizar a datos no vistos.
-- El **modelo con overfitting** pasa de **0.5662 en validación** a **0.4521 en test**, una caída de **-0.1141**, mostrando un comportamiento similar al baseline pero con peores métricas generales lo que confirma que la ausencia de *data augmentation* reduce la capacidad de generalización.
+- El **modelo sin data augmentation** pasa de **0.5662 en validación** a **0.4521 en test**, una caída de **-0.1141**, mostrando un comportamiento similar al baseline pero con peores métricas generales lo que confirma que la ausencia de *data augmentation* reduce la capacidad de generalización.
 - El **modelo con data leakage** muestra la mayor diferencia: **0.7664 en validación** frente a **0.4635 en test**, una caída de **-0.3029**, lo que indica que las métricas de validación estaban infladas artificialmente debido al leakage.
 
 En conjunto, el **baseline mantiene el mejor rendimiento real en test**, mientras que el **modelo con leakage aparenta ser mejor en validación pero no generaliza correctamente**, evidenciando el efecto negativo del data leakage.
