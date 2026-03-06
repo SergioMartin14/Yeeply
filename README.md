@@ -123,14 +123,6 @@ Al comparar los tres entrenamientos, en el caso de **overfitting** aparecen más
 
 Para comparar de forma justa los **tres modelos** (baseline, overfitting y leakage) se evaluan todos sobre el **subset de test**, que no se usó durante el entrenamiento ni la validación. Esta evaluación es clave para **desenmascarar el modelo con data leakage**, ya que un leakage suele inflar métricas en validación, pero **no debería traducirse en una mejora real en test**.
 
-### Test Metrics Comparison
-
-| Model | mAP@0.5:0.95 | mAP@0.5 | mAP@0.75 |
-|------|--------------|---------|---------|
-| Baseline | 0.3022 | 0.5687 | 0.2804 |
-| Overfitting | 0.2157 | 0.4521 | 0.1792 |
-| Leakage | 0.2191 | 0.4635 | 0.1842 |
-
 ### Val Metrics Comparison
 
 | Model | mAP@0.5:0.95 | mAP@0.5 | mAP@0.75 |
@@ -139,7 +131,13 @@ Para comparar de forma justa los **tres modelos** (baseline, overfitting y leaka
 | Overfitting | 0.3017 | 0.5662 | 0.2850 |
 | Leakage | 0.5273 | 0.7664 | 0.5869 |
 
+### Test Metrics Comparison
 
+| Model | mAP@0.5:0.95 | mAP@0.5 | mAP@0.75 |
+|------|--------------|---------|---------|
+| Baseline | 0.3022 | 0.5687 | 0.2804 |
+| Overfitting | 0.2157 | 0.4521 | 0.1792 |
+| Leakage | 0.2191 | 0.4635 | 0.1842 |
 
 
 
