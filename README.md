@@ -123,13 +123,25 @@ Al comparar los tres entrenamientos, en el caso de **overfitting** aparecen más
 
 Para comparar de forma justa los **tres modelos** (baseline, overfitting y leakage) se evaluan todos sobre el **subset de test**, que no se usó durante el entrenamiento ni la validación. Esta evaluación es clave para **desenmascarar el modelo con data leakage**, ya que un leakage suele inflar métricas en validación, pero **no debería traducirse en una mejora real en test**.
 
+### Test Metrics Comparison
 
+| Model | mAP@0.5:0.95 | mAP@0.5 | mAP@0.75 |
+|------|--------------|---------|---------|
+| Baseline | 0.3022 | 0.5687 | 0.2804 |
+| Overfitting | 0.2157 | 0.4521 | 0.1792 |
+| Data Leakage | 0.2191 | 0.4635 | 0.1842 |
+
+El **modelo baseline** obtiene los mejores resultados en todas las métricas, lo que indica una mejor capacidad de **generalización** al utilizar el dataset original junto con las augmentations por defecto.
+
+El modelo **overfitting** presenta una caída clara en mAP, lo que sugiere que el modelo se ajustó demasiado a los datos de entrenamiento al no utilizar data augmentation.
+
+El modelo con **data leakage** muestra métricas ligeramente mejores que el overfitting, pero sigue siendo inferior al baseline. Esto confirma que el *data leakage* puede inflar artificialmente las métricas durante validación, pero **no mejora el rendimiento real en el conjunto de test**.
 
 
 
 ## Demo Person Detector Outdoor-Indoor (Baseline Model)
 
-La **evaluación del modelo** sobre vídeos de prueba muestra que el detector identifica las personas presentes con **alta precisión**. Esto sugiere que las métricas de validación pueden estar penalizadas por la **dificultad intrínseca del dataset**, caracterizado por **escenas densas**, **personas de pequeño tamaño** y **frecuentes oclusiones**, más que por una falta de capacidad del modelo. Al aplicarlo a vídeos de escenas más habituales, el detector demuestra una **buena capacidad de generalización**, habiendo aprendido **representaciones robustas para la detección de personas**.
+La **evaluación del modelo** sobre vídeos de prueba muestra que el detector identifica las personas presentes con **alta precisión**. Esto sugiere que las métricas anteriores pueden estar penalizadas por la **dificultad intrínseca del dataset**, caracterizado por **escenas densas**, **personas de pequeño tamaño** y **frecuentes oclusiones**, más que por una falta de capacidad del modelo. Al aplicarlo a vídeos de escenas más habituales, el detector demuestra una **buena capacidad de generalización**, habiendo aprendido **representaciones robustas para la detección de personas**.
 
 ![Detection Demo](demo-videos/demo-detector-outdoor.gif) 
 
