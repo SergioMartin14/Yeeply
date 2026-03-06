@@ -120,7 +120,7 @@ Las métricas **mAP@0.5** y **mAP@0.5:0.95** miden la calidad global de las dete
 
 En el **entrenamiento baseline**, ambas métricas crecen de forma progresiva, indicando que el modelo aprende a localizar correctamente a las personas.  
 
-En el caso de **sin data augmentation**, el modelo tiende a ajustarse más a los datos de entrenamiento y limita su capacidad de generalización. 
+En el caso **sin data augmentation**, el modelo tiende a ajustarse más a los datos de entrenamiento y limita su capacidad de generalización. 
 
 En el experimento con **data leakage**, las métricas pueden aparecer **artificialmente elevadas**, ya que el modelo está siendo evaluado con imágenes que también han sido utilizadas durante el entrenamiento. Esto genera una estimación demasiado optimista del rendimiento real.
 
