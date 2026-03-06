@@ -78,11 +78,9 @@ A continuación se muestran las curvas de entrenamiento generadas por YOLOv8 par
   <img src="training-images/confusion_matrix_leakage.png" width="44%">
 </p>
 
-### Interpretation
+### 4. Interpretation
 
-Para analizar el comportamiento del modelo en los tres entrenamientos (baseline, overfitting y data leakage), se comparan tres elementos clave: **mAP**, **curvas Precision–Recall** y **matrices de confusión**. Cada uno aporta una perspectiva distinta sobre el rendimiento del detector.
-
-### mAP@0.5 y mAP@0.5:0.95
+#### mAP@0.5 y mAP@0.5:0.95
 
 Las métricas **mAP@0.5** y **mAP@0.5:0.95** miden la calidad global de las detecciones considerando el grado de solapamiento entre las *bounding boxes* predichas y las reales (IoU).
 
@@ -95,9 +93,7 @@ En el caso de **overfitting**, el modelo tiende a ajustarse más a los datos de 
 
 En el experimento con **data leakage**, las métricas pueden aparecer **artificialmente elevadas**, ya que el modelo está siendo evaluado con imágenes que también han sido utilizadas durante el entrenamiento. Esto genera una estimación demasiado optimista del rendimiento real.
 
----
-
-### Precision–Recall Curve (PR Curve)
+#### Precision–Recall Curve (PR Curve)
 
 La **curva Precision–Recall** muestra la relación entre **precision** y **recall** al variar el **umbral de confianza** de las detecciones.
 
@@ -113,9 +109,7 @@ Comparando los tres entrenamientos:
 - El **overfitting** puede mostrar un comportamiento menos estable, indicando menor capacidad de generalización.
 - El **data leakage** puede producir curvas aparentemente mejores, pero estas métricas no reflejan el rendimiento real del modelo en datos no vistos.
 
----
-
-### Matriz de Confusión
+#### Matriz de Confusión
 
 La **matriz de confusión** permite analizar de forma directa los tipos de aciertos y errores del modelo. En detección de objetos, suele reflejar principalmente:
 
