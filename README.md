@@ -119,6 +119,14 @@ La **matriz de confusión** permite analizar de forma directa los tipos de acier
 
 Al comparar los tres entrenamientos, en el caso de **overfitting** aparecen más errores en validación debido a la menor capacidad de generalización. En el **experimento con data leakage**, la matriz muestra menos errores de los que realmente existirían en un escenario real, ya que parte de los datos de validación ya fueron vistos durante el entrenamiento.
 
+## Test-set Evaluation (Comparing the 3 trained models)
+
+Para comparar de forma justa los **tres modelos** (baseline, overfitting y leakage) se evaluan todos sobre el **subset de test**, que no se usó durante el entrenamiento ni la validación. Esta evaluación es clave para **desenmascarar el modelo con data leakage**, ya que un leakage suele inflar métricas en validación, pero **no debería traducirse en una mejora real en test**.
+
+
+
+
+
 ## Demo Person Detector Outdoor-Indoor (Baseline Model)
 
 La **evaluación del modelo** sobre vídeos de prueba muestra que el detector identifica las personas presentes con **alta precisión**. Esto sugiere que las métricas de validación pueden estar penalizadas por la **dificultad intrínseca del dataset**, caracterizado por **escenas densas**, **personas de pequeño tamaño** y **frecuentes oclusiones**, más que por una falta de capacidad del modelo. Al aplicarlo a vídeos de escenas más habituales, el detector demuestra una **buena capacidad de generalización**, habiendo aprendido **representaciones robustas para la detección de personas**.
